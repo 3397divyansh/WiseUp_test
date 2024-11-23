@@ -16,17 +16,17 @@ import { setProgress } from "./slices/loadingBarSlice";
 function App() {
   return (
     <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
-      {/* <NavBar setProgress={setProgress}></NavBar> */}
+      <NavBar setProgress={setProgress}></NavBar>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route
+        <Route
           path="/login"
           element={
             <OpenRoute>
               <Login />
             </OpenRoute>
           }
-        /> */}
+        />
 
         <Route
           path="/signup"
@@ -40,8 +40,8 @@ function App() {
         {/* <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route path="/update-password/:id" element={<ResetPassword />} />
-
-        <Route path="/verify-email" element={<VerifyOtp />} /> */}
+ */}
+        <Route path="/verify-email" element={<VerifyOtp />} />
       </Routes>
     </div>
   );

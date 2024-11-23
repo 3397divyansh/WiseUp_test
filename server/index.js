@@ -11,6 +11,9 @@ const CourseRoutes = require("./routes/Course");
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 
+
+
+
 const cors = require("cors");
 
 const fileUpload = require("express-fileupload");
@@ -32,7 +35,7 @@ const whitelist = process.env.CORS_ORIGIN
 
 app.use(
   cors({
-    origin: whitelist,
+    origin: "*",
     credentials: true,
     maxAge: 14400,
   })
