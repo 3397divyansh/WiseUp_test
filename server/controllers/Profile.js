@@ -120,7 +120,7 @@ exports.updateProfile = async (req, res) => {
   exports.updateDisplayPicture = async (req,  res) => {
     try {
       const displayPicture = req.files.displayPicture
-      // console.log(  req.files);
+      console.log( "is file comin in the update controller", req.files.displayPicture);
       const userId = req.user.id
       console.log( userId);
       const image = await uploadImageToCloudinary(
@@ -129,7 +129,7 @@ exports.updateProfile = async (req, res) => {
         1000,
         1000
       )
-      console.log(image)
+      console.log("int profileimage update controller",image)
        
       const updatedProfile = await User.findByIdAndUpdate(
         { _id: userId },

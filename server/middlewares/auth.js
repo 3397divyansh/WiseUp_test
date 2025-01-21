@@ -4,6 +4,7 @@ const User = require("../models/User");
 
 dotenv.config();
 exports.auth=async(req,res,next)=>{
+	// console.log(req);
     const token = req.token || req.cookies.token || req.header("Authorization").replace("Bearer","") 
 	console.log("auth middleware ");
     if (!token) {
@@ -11,11 +12,13 @@ exports.auth=async(req,res,next)=>{
     }
 
     try{
+		console.log(token);
         const decode = jwt.verify(token,process.env.JWT_SECRET);
+		 
 		req.user = decode;
     }
     catch (error){
-		
+		console.log(error);
         return res
 				.status(401)
 				.json({ success: false, message: "token is invalid" });

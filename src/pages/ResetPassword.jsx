@@ -34,6 +34,8 @@ const ResetPassword = () => {
     const [resetComplete, setresetComplete] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
+  
   return (
     <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
             {
@@ -66,7 +68,8 @@ const ResetPassword = () => {
                                          boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                                        }}
                                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
-                                     /></label>
+                                     />
+                                     </label>
                                      <span
                                        onClick={() => setShowPassword((prev) => !prev)}
                                        className="absolute right-3 top-9 z-[10] cursor-pointer"

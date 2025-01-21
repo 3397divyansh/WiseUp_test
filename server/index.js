@@ -50,7 +50,7 @@ app.use(
 
 cloudnairyconnect();
 
-app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/auth", userRoutes);  
 
 app.use("/api/v1/payment", paymentRoutes);
 
