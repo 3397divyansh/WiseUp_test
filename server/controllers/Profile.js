@@ -87,6 +87,7 @@ exports.updateProfile = async (req, res) => {
         success: true,
         message: "User deleted successfully",
       })
+      console.log("delete before courseprogreess")
       await CourseProgress.deleteMany({ userId: id })
     } catch (error) {
       console.log(error)

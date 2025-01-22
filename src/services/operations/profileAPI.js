@@ -159,7 +159,7 @@ export async function deleteAccount(token, dispatch, navigate) {
       settingsEndpoints.DELETE_PROFILE_API,
       null,
       {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer${token}`,
       }
     );
     console.log("DELETE_ACCOUNT_API API RESPONSE............", response);

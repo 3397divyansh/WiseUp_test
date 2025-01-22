@@ -24,7 +24,7 @@ import AddCourse from "./Components/core/Dashboard/AddCourse/index.jsx";
 import EditCourse from "./Components/core/Dashboard/EditCourse/index.jsx";
 import Catalog from "./pages/Catalog.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx";
-import MyCourses from "./Components/core/Dashboard/MyCourses copy.jsx";
+import MyCourses from "./Components/core/Dashboard/MyCourses.jsx";
 
 function App() {
 

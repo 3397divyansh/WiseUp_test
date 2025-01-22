@@ -24,15 +24,20 @@ function Catalog() {
   const [active, setActive] = useState(1);
   const [catalogPageData, setCatalogPageData] = useState(null);
   const [categoryId, setCategoryId] = useState("");
-
+console.log("catelog mein hu")
   // Fetch All Categories
   useEffect(() => {
     (async () => {
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API);
+        console.log(res)
+        console.log(res.data.data)
+        console.log(catalogName)
         const category_id = res?.data?.data?.filter(
-          (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName
-        )[0]._id;
+          (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName.toLowerCase()
+        )[0];
+        console.log(category_id)
+        
         setCategoryId(category_id);
       } catch (error) {
         console.log("Could not fetch Categories.", error);
@@ -43,7 +48,9 @@ function Catalog() {
     if (categoryId) {
       (async () => {
         try {
+          console.log("getcategoriespage detaisl ")
           const res = await getCatalogPageData(categoryId);
+          console.log(res)
           setCatalogPageData(res);
         } catch (error) {
           console.log(error);
@@ -67,6 +74,7 @@ function Catalog() {
     <>
       {/* Hero Section */}
       <div className=" box-content bg-richblack-800 px-4">
+        
         <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
           <p className="text-sm text-richblack-300">
             {`Home / Catalog / `}

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { sendOtp } from "../../../services/operations/authAPI"
 import { setSignupData } from "../../../slices/authSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
-// import Tab from "../../common/Tab"
+import Tab from "../../common/Tab"
 import {setProgress} from "../../../slices/loadingBarSlice"
 
 function SignupForm() {
@@ -85,7 +85,7 @@ function SignupForm() {
   return (
     <div>
       {/* Tab */}
-      {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
+      <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">

@@ -5,14 +5,14 @@ const User = require("../models/User");
 dotenv.config();
 exports.auth=async(req,res,next)=>{
 	// console.log(req);
-    const token = req.token || req.cookies.token || req.header("Authorization").replace("Bearer","") 
+    const token = req.token || req.cookies.token || req.header("Authorization").replace("Bearer","").trim()
 	console.log("auth middleware ");
     if (!token) {
         return res.status(401).json({ success: false, message: "`Token Missing`" });
     }
 
     try{
-		console.log(token);
+		console.log('a'+''+token);
         const decode = jwt.verify(token,process.env.JWT_SECRET);
 		 
 		req.user = decode;
@@ -81,7 +81,7 @@ exports.isAdmin = async (req, res, next) => {
 exports.isInstructor = async (req, res, next) => {
 	try {
 		const userDetails = await User.findOne({ email: req.user.email });
-		console.log(userDetails);
+		// console.log(userDetails);
 
 		console.log(userDetails.accountType);
 

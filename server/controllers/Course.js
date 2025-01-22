@@ -25,7 +25,7 @@ exports.createCourse = async (req, res) => {
   const thumbnail = req.files.thumbnailImage
 
   const tag= JSON.parse(_tag);
-  const instructions = JSON (_instructions) ;
+  const instructions = JSON.parse (_instructions) ;
 
   if (
     !courseName ||

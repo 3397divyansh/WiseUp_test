@@ -25,7 +25,31 @@ const [viewSubSection, setViewSubSection] = useState(null)
 const [editSubSection, setEditSubSection] = useState(null)
 // to keep track of confirmation modal
 const [confirmationModal, setConfirmationModal] = useState(null)
+const handleDeleleSection = async (sectionId) => {
+  const result = await deleteSection({
+    sectionId,
+    courseId: course._id,
+    token,
+  })
+  if (result) {
+    dispatch(setCourse(result))
+  }
+  setConfirmationModal(null)
+}
 
+const handleDeleteSubSection = async (subSectionId, sectionId) => {
+  console.log("inside neated view "+token+"is tiken")
+  const result = await deleteSubSection({ subSectionId, sectionId, token })
+  if (result) {
+    // update the structure of course
+    const updatedCourseContent = course.courseContent.map((section) =>
+      section._id === sectionId ? result : section
+    )
+    const updatedCourse = { ...course, courseContent: updatedCourseContent }
+    dispatch(setCourse(updatedCourse))
+  }
+  setConfirmationModal(null)
+}
 
 return (
 
