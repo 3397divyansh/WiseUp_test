@@ -1,0 +1,23 @@
+# Node.js dependencies (for Node.js-based backend)
+node_modules/
+
+# Python dependencies (for Django/Flask)
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+
+# Database files
+*.sqlite3
+*.db
+
+# Build/Compiled output
+dist/
+build/

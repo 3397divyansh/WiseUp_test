@@ -32,32 +32,25 @@ exports.auth=async(req,res,next)=>{
 }
 
 
-exports.isStudent=async(req,res,next)=>{
-    try{
-        
-    const userDetails = User.findOne({email:req.user.email});
+exports.isStudent = async (req, res, next) => {
+	try {
+		// const userDetails = await User.findOne({ email: req.user.email });
+		const userDetails = req.user;
 
-    if(userDetails.accountType!=="Student");
-    {
-        return res.status(401).json({
-            success: false,
-            message: "This is a Protected Route for Students",
-        });
-    }
-    next();
-    }
-    
-    
-    catch{
-        return req.status(500).json({
-            success:false,message:"user role ccant be verified"
-        })
-
-    }
-    
-
-}
-
+		if (userDetails.accountType !== "Student") {
+			return res.status(401).json({
+				success: false,
+				message: "This is a Protected Route for Students",
+			});
+		}
+		console.log("stuent hai confirm")
+		next();
+	} catch (error) {
+		return res
+			.status(500)
+			.json({ success: false, message: `User Role Can't be Verified` });
+	}
+};
 
 
 

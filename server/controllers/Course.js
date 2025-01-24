@@ -234,7 +234,7 @@ exports.getCourseDetails = async (req, res) => {
         },
       })
       .exec()
-
+      
     if (!courseDetails) {
       return res.status(400).json({
         success: false,
@@ -249,17 +249,20 @@ exports.getCourseDetails = async (req, res) => {
     //   });
     // }
 
-
-    let totalDurationInSeconds=0;
-
-    courseDetails.courseContent.forEach((content)=>{
-      content.SubSection.forEach((SubSection)=>{
-        const timeDurationInSecond = parseInt(SubSection.timeDuration)
-        totalDurationInSeconds+=timeDurationInSecond;
+// nested loop to cal the sum of ele is this question ig ryt ???
+// this can be optimized shyd?
+    let totalDurationInSeconds = 0
+    courseDetails.courseContent.forEach((content) => {
+      content.subSection.forEach((subSection) => {
+        const timeDurationInSeconds = parseInt(subSection.timeDuration)
+        totalDurationInSeconds += timeDurationInSeconds
       })
     })
-    talDuration = convertSecondsToDuration(totalDurationInSeconds)
+    console.log("before returning the responsee");
     
+    const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
+   
+
     return res.status(200).json({
       success: true,
       data: {

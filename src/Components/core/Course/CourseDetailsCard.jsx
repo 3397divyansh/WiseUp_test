@@ -81,23 +81,23 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             >
               {user && course?.studentsEnroled.includes(user?._id)
                 ? "Go To Course"
-                : "Buy Now"}
+                : "Buy Now4"}
             </button>
             {(!user || !course?.studentsEnroled.includes(user?._id)) && (
               <button onClick={handleAddToCart} className="blackButton">
-                Add to Cart
+                Add to Carts
               </button>
             )}
           </div>
           <div>
             <p className="pb-3 pt-6 text-center text-sm text-richblack-25">
-              30-Day Money-Back Guarantee
+              30-Day Money-Back Guarantee deinge vapas
             </p>
           </div>
 
           <div className={``}>
             <p className={`my-2 text-xl font-semibold `}>
-              This Course Includes :
+              This Course Includes all :
             </p>
             <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
               {course?.instructions?.map((item, i) => {

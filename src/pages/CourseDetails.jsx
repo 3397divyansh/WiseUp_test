@@ -54,6 +54,7 @@ function CourseDetails() {
   // console.log("response: ", response)
 
   // Calculating Avg Review count
+
   const [avgReviewCount, setAvgReviewCount] = useState(0);
   useEffect(() => {
     const count = GetAvgRating(response?.data?.courseDetails.ratingAndReviews);
@@ -109,7 +110,9 @@ function CourseDetails() {
   } = response.data?.courseDetails;
 
   const handleBuyCourse = () => {
+     
     if (token) {
+       
       BuyCourse(token, [courseId], user, navigate, dispatch);
       return;
     }
@@ -124,7 +127,7 @@ function CourseDetails() {
   };
 
   if (paymentLoading) {
-    // console.log("payment loading")
+    console.log("payment loading")
     return (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>

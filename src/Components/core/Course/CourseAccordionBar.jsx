@@ -8,11 +8,14 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
 
   // Accordian state
   const [active, setActive] = useState(false)
+
   useEffect(() => {
     setActive(isActive?.includes(course._id))
   }, [isActive])
   const [sectionHeight, setSectionHeight] = useState(0)
+
   useEffect(() => {
+    console.log(contentEl.current.scrollHeight)
     setSectionHeight(active ? contentEl.current.scrollHeight : 0)
   }, [active])
 
@@ -50,9 +53,9 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
         }}
       >
         <div className="text-textHead flex flex-col gap-2 px-7 py-6 font-semibold">
-          {course?.subSection?.map((subSec, i) => {
-            return <CourseSubSectionAccordion subSec={subSec} key={i} />
-          })}
+          {course?.subSection?.map((subSec, i) => (
+              <CourseSubSectionAccordion subSec={subSec} key={i} />
+          ))}
         </div>
       </div>
     </div>

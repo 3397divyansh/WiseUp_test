@@ -25,7 +25,8 @@ import EditCourse from "./Components/core/Dashboard/EditCourse/index.jsx";
 import Catalog from "./pages/Catalog.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx";
 import MyCourses from "./Components/core/Dashboard/MyCourses.jsx";
-
+import ViewCourse from "./pages/ViewCourse.jsx";
+import VideoDetails from "./Components/core/ViewCourse/VideoDetails.jsx";
 function App() {
 
   const user = useSelector((state) => state.profile.user);
@@ -37,6 +38,8 @@ function App() {
     <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <NavBar setProgress={setProgress}></NavBar>
       <Routes>
+      
+
         <Route path="/" element={<Home />} />
 
 
@@ -76,6 +79,7 @@ function App() {
             <Route path="dashboard/my-profile" element ={<MyProfile/>}/>
 
 <Route path="dashboard/settings" element={<Setting />} />
+
 
        
        
@@ -128,7 +132,22 @@ function App() {
          */}
         </Route>
 
-
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
+        </Route>
 
       </Routes>
 
